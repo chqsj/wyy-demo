@@ -1,7 +1,32 @@
 <div class="carousel">
   <div class="wrap">
-    <ng-content>
-        
-    </ng-content>
+    <!-- 左箭头 -->
+    <i
+      nz-icon
+      class="arrow left"
+      nzType="left"
+      nzTheme="outline"
+      (click)="onChangeCarousel('pre')"
+    ></i>
+
+    <!-- 轮播图中心图片内容 -->
+    <ng-content> </ng-content>
+
+    <!-- 使用Dot渲染模板渲染模板来改变轮播图默认的指示点
+        let-number  为模板绑定变量
+    -->
+    <ng-template #dot let-number>
+      <!-- 自定义小圆点 -->
+      <i nz-icon class="dot" [class.active]="activeIndex === number"></i>
+    </ng-template>
+
+    <!-- 右箭头 -->
+    <i
+      nz-icon
+      class="arrow right"
+      nzType="right"
+      nzTheme="outline"
+      (click)="onChangeCarousel('next')"
+    ></i>
   </div>
 </div>
